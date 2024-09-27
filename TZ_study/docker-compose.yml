@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+
+  vpn_server:
+    build: vpn/
+    volumes:
+      - ssh_pub_key:/app/key/
+
+  ansible:
+    build: ansible/
+    volumes:
+      - ssh_pub_key:/ans_user_home/key/
+    depends_on:
+      - vpn_server
+
+
+volumes:
+  ssh_pub_key:
+

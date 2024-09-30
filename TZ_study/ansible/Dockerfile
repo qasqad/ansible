@@ -17,4 +17,5 @@ RUN ssh-keygen -q -t rsa -b 4096 -f '/ans_user_home/.ssh/id_rsa' -N '' && mkdir 
 
 EXPOSE 22
 
-ENTRYPOINT while true; do echo hello ans_user; sleep 1; done
+ENTRYPOINT while [ $? -ne 0 ]; do 'ssh -o StrictHostKeyChecking=no vpn_user@tz_study_vpn_server_1'; sleep 7; done
+#ENTRYPOINT ["sh", "-c", "ssh -o StrictHostKeyChecking=no vpn_user@tz_study_vpn_server_1"]

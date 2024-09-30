@@ -20,6 +20,8 @@ RUN rc-update add sshd default
 
 USER vpn_user
 
+RUN sed -i 's/authorized_keys/id_rsa.pub/g' /etc/ssh/sshd_config
+
 EXPOSE 22
 
 ENTRYPOINT ["sh", "-c", "rc-status; touch /run/openrc/softlevel; rc-service sshd start; while true; do echo hello vpn_user; sleep 1; done"]

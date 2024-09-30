@@ -5,7 +5,7 @@ services:
   vpn_server:
     build: vpn/
     volumes:
-      - ssh_pub_key:/app/key/
+      - ssh_pub_key:/app/.ssh/
     ports:
       -  22
 

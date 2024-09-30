@@ -6,11 +6,15 @@ services:
     build: vpn/
     volumes:
       - ssh_pub_key:/app/key/
+    ports:
+      -  22
 
   ansible:
     build: ansible/
     volumes:
       - ssh_pub_key:/ans_user_home/key/
+    ports:
+      -  22
     depends_on:
       - vpn_server
 

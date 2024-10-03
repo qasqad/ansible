@@ -6,6 +6,8 @@ VOLUME /sys/fs/cgroup
 
 WORKDIR /ans_user_home
 
+COPY . .
+
 RUN apk add --update --no-cache bash openssh sudo
 
 RUN adduser -h /ans_user_home -D -s /bin/bash ans_user && addgroup ans_user wheel \
@@ -20,4 +22,5 @@ EXPOSE 22
 RUN export PATH="$PATH:/ans_user_home/.local/bin" \
     && python3 -m pip install --user ansible
 
-ENTRYPOINT ["sh", "-c", "while true; do echo hello vpn_user; sleep 1; done"]
+#ENTRYPOINT ["sh", "-c", "while true; do echo hello vpn_user; sleep 1; done"]
+ENTRYPOINT ["sh", "-c", "ansible vpn -m ping"]

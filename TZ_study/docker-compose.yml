@@ -15,6 +15,7 @@ services:
       - ssh_pub_key:/ans_user_home/key/
     ports:
       -  22
+    env_file: ans.env
     depends_on:
       - vpn_server
 

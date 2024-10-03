@@ -1,4 +1,4 @@
-FROM alpine
+FROM python:3.13.0rc2-alpine3.20
 USER root
 LABEL maintainer="qas"
 
@@ -17,5 +17,7 @@ RUN ssh-keygen -q -t rsa -b 4096 -f '/ans_user_home/.ssh/id_rsa' -N '' && mkdir 
 
 EXPOSE 22
 
-ENTRYPOINT while [ $? -ne 0 ]; do 'ssh -o StrictHostKeyChecking=no vpn_user@tz_study_vpn_server_1'; sleep 7; done
-#ENTRYPOINT ["sh", "-c", "ssh -o StrictHostKeyChecking=no vpn_user@tz_study_vpn_server_1"]
+RUN export PATH="$PATH:/ans_user_home/.local/bin" \
+    && python3 -m pip install --user ansible
+
+ENTRYPOINT ["sh", "-c", "while true; do echo hello vpn_user; sleep 1; done"]

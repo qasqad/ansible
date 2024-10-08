@@ -1,5 +1,3 @@
-version: "3"
-
 services:
 
   vpn_server_alma_8:

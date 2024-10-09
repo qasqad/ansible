@@ -4,7 +4,7 @@ LABEL maintainer="qas"
 
 WORKDIR /app
 
-RUN microdnf install openssh-clients.x86_64 sudo
+RUN microdnf install openssh-server.x86_64 sudo
 RUN useradd -d /home/vpn_user -s /bin/bash vpn_user
 RUN usermod -aG wheel vpn_user
 RUN echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config

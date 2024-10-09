@@ -4,7 +4,7 @@ services:
     image: almalinux:8-minimal
     build: vpn_alma_8/
     volumes:
-      - ssh_pub_key:/app/.ssh/
+      - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 
@@ -12,7 +12,7 @@ services:
     image: almalinux:9-minimal
     build: vpn_alma_9/
     volumes:
-      - ssh_pub_key:/app/.ssh/
+      - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 
@@ -20,7 +20,7 @@ services:
     image: rockylinux:8-minimal
     build: vpn_rocky_8/
     volumes:
-      - ssh_pub_key:/app/.ssh/
+      - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 
@@ -28,7 +28,7 @@ services:
     image: rockylinux:9-minimal
     build: vpn_rocky_9/
     volumes:
-      - ssh_pub_key:/app/.ssh/
+      - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 

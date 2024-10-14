@@ -1,25 +1,52 @@
-version: "3"
-
 services:
 
-  vpn_server:
-    build: vpn/
+  vpn_server_alma_8:
+    image: almalinux:8-minimal
+    build: vpn_alma_8/
     volumes:
-      - ssh_pub_key:/app/.ssh/
+      - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 
+  vpn_server_alma_9:
+    image: almalinux:9-minimal
+    build: vpn_alma_9/
+    volumes:
+      - ssh_pub_key:/home/vpn_user/.ssh/
+    ports:
+      -  22
+
+  vpn_server_rocky_8:
+    image: rockylinux:8-minimal
+    build: vpn_rocky_8/
+    volumes:
+      - ssh_pub_key:/home/vpn_user/.ssh/
+    ports:
+      -  22
+
+  vpn_server_rocky_9:
+    image: rockylinux:9-minimal
+    build: vpn_rocky_9/
+    volumes:
+      - ssh_pub_key:/home/vpn_user/.ssh/
+    ports:
+      -  22
+
+
   ansible:
     build: ansible/
+    image: python:3.13.0rc2-alpine3.20
     volumes:
       - ssh_pub_key:/ans_user_home/key/
     ports:
       -  22
     env_file: ans.env
     depends_on:
-      - vpn_server
+      - vpn_server_alma_8
+      - vpn_server_alma_9
+      - vpn_server_rocky_8
+      - vpn_server_rocky_9
 
 
 volumes:
   ssh_pub_key:
-

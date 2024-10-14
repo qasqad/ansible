@@ -14,9 +14,10 @@ RUN adduser -h /ans_user_home -D -s /bin/bash ans_user && addgroup ans_user whee
 
 USER ans_user
 
-COPY . .
-
-RUN ssh-keygen -q -t rsa -b 4096 -f '/ans_user_home/.ssh/id_rsa' -N '' && mkdir /ans_user_home/key && cp /ans_user_home/.ssh/id_rsa.pub /ans_user_home/key/
+RUN ssh-keygen -q -t rsa -b 4096 -f '/ans_user_home/.ssh/id_rsa' -N '' \
+    && mkdir /ans_user_home/key \
+    && cp /ans_user_home/.ssh/id_rsa.pub /ans_user_home/key/ \
+    && mkdir /ans_user_home/roles
 
 RUN export PATH="$PATH:/ans_user_home/.local/bin" \
     && python3 -m pip install --user ansible

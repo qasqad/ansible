@@ -38,7 +38,9 @@ services:
     image: python:3.13.0rc2-alpine3.20
     volumes:
       - ssh_pub_key:/ans_user_home/key/
-      - ../roles/temp_for_ansible_tz/:/ans_user_home/roles
+      - type: bind
+        source: ../roles/temp_for_ansible_tz
+        target: /ans_user_home/roles
     ports:
       -  22
     env_file: ans.env

@@ -4,13 +4,13 @@ LABEL maintainer="qas"
 
 WORKDIR /app
 
-RUN microdnf install openssh-server.x86_64 sudo \
+RUN microdnf install openssh-server.x86_64 sudo dnf\
     && useradd -d /home/vpn_user -s /bin/bash vpn_user \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && ssh-keygen -A
 
-RUN microdnf install dnf && dnf install -y python310
+RUN dnf install -y python39.x86_64
 
 RUN <<EOF cat > /etc/ssh/sshd_config
 PermitRootLogin no

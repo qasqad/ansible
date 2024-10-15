@@ -8,7 +8,6 @@ RUN microdnf install openssh-server.x86_64 sudo \
     && useradd -d /home/vpn_user -s /bin/bash vpn_user \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \
-    && echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config \
     && ssh-keygen -A
 
 RUN microdnf install dnf && dnf install -y python310

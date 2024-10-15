@@ -1,32 +1,28 @@
 services:
 
   vpn_server_alma_8:
-    image: almalinux:8-minimal
-    build: vpn_alma_8/
+    image: a8_new
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 
   vpn_server_alma_9:
-    image: almalinux:9-minimal
-    build: vpn_alma_9/
+    image: a9_new
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 
   vpn_server_rocky_8:
-    image: rockylinux:8-minimal
-    build: vpn_rocky_8/
+    image: r8_new
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
       -  22
 
   vpn_server_rocky_9:
-    image: rockylinux:9-minimal
-    build: vpn_rocky_9/
+    image: r9_new
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
@@ -34,8 +30,7 @@ services:
 
 
   ansible:
-    build: ansible/
-    image: python:3.13.0rc2-alpine3.20
+    image: ans_new
     volumes:
       - ssh_pub_key:/ans_user_home/key/
       - ./ansible/roles:/ans_user_home/roles

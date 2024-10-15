@@ -11,7 +11,7 @@ RUN microdnf install openssh-server.x86_64 sudo \
     && echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config \
     && ssh-keygen -A
 
-RUN microdnf install dnf && dnf install -y python312
+RUN microdnf install dnf && dnf install -y python310
 
 RUN <<EOF cat > /etc/ssh/sshd_config
 PermitRootLogin no

@@ -4,7 +4,7 @@ LABEL maintainer="qas"
 
 WORKDIR /app
 
-RUN microdnf install -y openssh-server.x86_64 sudo dnf \
+RUN microdnf install -y openssh-server.x86_64 sudo vsftpd.x86_64 dnf \
     && useradd -d /home/vpn_user -s /bin/bash vpn_user \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \
@@ -20,6 +20,7 @@ ChallengeResponseAuthentication no
 UsePAM yes
 X11Forwarding no
 PrintMotd no
+Subsystem sftp /usr/libexec/openssh/sftp-server
 AcceptEnv LANG LC_*
 AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
 AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT

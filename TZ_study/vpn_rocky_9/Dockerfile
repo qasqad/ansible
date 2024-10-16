@@ -1,6 +1,7 @@
 FROM rockylinux:9-minimal
 USER root
 LABEL maintainer="qas"
+LABEL PRETTY_NAME="Rocky Linux 9.3 (Blue Onyx)"
 
 WORKDIR /app
 

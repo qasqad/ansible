@@ -1,6 +1,7 @@
 FROM almalinux:9-minimal
 USER root
 LABEL maintainer="qas"
+LABEL PRETTY_NAME="AlmaLinux 9.4 (Seafoam Ocelot)"
 
 WORKDIR /app
 

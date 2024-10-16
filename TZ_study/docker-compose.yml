@@ -38,9 +38,10 @@ services:
     image: python:3.13.0rc2-alpine3.20
     volumes:
       - ssh_pub_key:/ans_user_home/key/
+      - ./ansible/roles:/ans_user_home/roles
     ports:
       -  22
-    env_file: ans.env
+    env_file: ./ansible/ans.env
     depends_on:
       - vpn_server_alma_8
       - vpn_server_alma_9

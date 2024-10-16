@@ -1,4 +1,4 @@
-FROM python:3.13.0rc2-alpine3.20
+FROM python:3.9.20-alpine3.20
 
 LABEL maintainer="qas"
 

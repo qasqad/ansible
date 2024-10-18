@@ -32,7 +32,6 @@ AcceptEnv XMODIFIERS
 ClientAliveInterval 120
 EOF
 
-USER vpn_user
 USER root
 
 EXPOSE 22

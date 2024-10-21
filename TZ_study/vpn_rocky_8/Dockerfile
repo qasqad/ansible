@@ -1,4 +1,4 @@
-FROM rockylinux:8-minimal
+FROM rockylinux:8-minimal AS rocky8:v1
 USER root
 LABEL maintainer="qas"
 LABEL PRETTY_NAME="Rocky Linux 8.9 (Green Obsidian)"

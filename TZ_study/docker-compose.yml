@@ -1,7 +1,7 @@
 services:
 
   vpn_server_alma_8:
-    image: almalinux:8-minimal
+    image: alma8:v1
     build: vpn_alma_8/
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
@@ -9,7 +9,7 @@ services:
       -  22
 
   vpn_server_alma_9:
-    image: almalinux:9-minimal
+    image: alma9:v1
     build: vpn_alma_9/
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
@@ -17,7 +17,7 @@ services:
       -  22
 
   vpn_server_rocky_8:
-    image: rockylinux:8-minimal
+    image: rocky8:v1
     build: vpn_rocky_8/
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
@@ -25,7 +25,7 @@ services:
       -  22
 
   vpn_server_rocky_9:
-    image: rockylinux:9-minimal
+    image: rocky9:v1
     build: vpn_rocky_9/
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
@@ -35,7 +35,7 @@ services:
 
   ansible:
     build: ansible/
-    image: python:3.9.20-alpine3.20
+    image: ans_pyth3_9_20:v1
     volumes:
       - ssh_pub_key:/ans_user_home/key/
       - ./ansible/roles:/ans_user_home/roles

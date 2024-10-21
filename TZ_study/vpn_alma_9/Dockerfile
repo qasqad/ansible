@@ -1,4 +1,4 @@
-FROM almalinux:9-minimal
+FROM almalinux:9-minimal AS alma9:v1
 USER root
 LABEL maintainer="qas"
 LABEL PRETTY_NAME="AlmaLinux 9.4 (Seafoam Ocelot)"

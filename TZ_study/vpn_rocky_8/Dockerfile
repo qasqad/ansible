@@ -5,7 +5,7 @@ LABEL PRETTY_NAME="Rocky Linux 8.9 (Green Obsidian)"
 
 WORKDIR /app
 
-RUN microdnf install openssh-server.x86_64 sudo vsftpd.x86_64 dnf \
+RUN microdnf install openssh-server.x86_64 sudo vsftpd.x86_64 procps-ng.x86_64 dnf \
     && useradd -d /home/vpn_user -s /bin/bash vpn_user \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \

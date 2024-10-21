@@ -1,4 +1,4 @@
-FROM rockylinux:9-minimal AS rocky9
+FROM rockylinux:9-minimal AS rocky9:v1
 USER root
 LABEL maintainer="qas"
 LABEL PRETTY_NAME="Rocky Linux 9.3 (Blue Onyx)"

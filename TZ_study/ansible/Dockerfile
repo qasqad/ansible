@@ -1,4 +1,4 @@
-FROM python:3.9.20-alpine3.20 AS ans_pyth3_9_20
+FROM python:3.9.20-alpine3.20 AS ans_pyth3_9_20:v1
 
 LABEL maintainer="qas"
 

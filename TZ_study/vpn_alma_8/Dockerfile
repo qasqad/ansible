@@ -1,4 +1,4 @@
-FROM almalinux:8-init AS alma8
+FROM almalinux/8-init AS alma8
 USER root
 LABEL maintainer="qas"
 LABEL PRETTY_NAME="AlmaLinux 8.10 (Cerulean Leopard)"

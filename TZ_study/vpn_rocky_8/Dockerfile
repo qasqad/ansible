@@ -1,4 +1,4 @@
-FROM rockylinux:8-init AS rocky8
+FROM rockylinux/8-init AS rocky8
 USER root
 LABEL maintainer="qas"
 LABEL PRETTY_NAME="Rocky Linux 8.9 (Green Obsidian)"

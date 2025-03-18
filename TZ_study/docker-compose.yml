@@ -1,32 +1,8 @@
 services:
 
-  vpn_server_alma_8:
-    image: alma8
-    build: vpn_alma_8/
-    volumes:
-      - ssh_pub_key:/home/vpn_user/.ssh/
-    ports:
-      -  22
-
-  vpn_server_alma_9:
-    image: alma9
-    build: vpn_alma_9/
-    volumes:
-      - ssh_pub_key:/home/vpn_user/.ssh/
-    ports:
-      -  22
-
-  vpn_server_rocky_8:
-    image: rocky8
-    build: vpn_rocky_8/
-    volumes:
-      - ssh_pub_key:/home/vpn_user/.ssh/
-    ports:
-      -  22
-
-  vpn_server_rocky_9:
-    image: rocky9
-    build: vpn_rocky_9/
+  vpn_server_ubuntu:
+    image: ubuntu
+    build: ubuntu/
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/
     ports:
@@ -43,10 +19,7 @@ services:
       -  22
     env_file: ./ansible/ans.env
     depends_on:
-      - vpn_server_alma_8
-      - vpn_server_alma_9
-      - vpn_server_rocky_8
-      - vpn_server_rocky_9
+      - vpn_server_ubuntu
 
 
 volumes:

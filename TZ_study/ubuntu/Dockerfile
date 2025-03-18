@@ -1,15 +1,17 @@
-FROM almalinux:9-minimal AS alma9
+FROM ubuntu AS ubuntu
 USER root
 LABEL maintainer="qas"
-LABEL PRETTY_NAME="AlmaLinux 9.4 (Seafoam Ocelot)"
+LABEL PRETTY_NAME="just ubuntu"
 
 WORKDIR /app
 
-RUN microdnf install -y openssh-server.x86_64 sudo vsftpd.x86_64 procps-ng.x86_64 dnf \
+RUN apt-get install openssh-server.x86_64 sudo vsftpd.x86_64 procps-ng.x86_64 \
     && useradd -d /home/vpn_user -s /bin/bash vpn_user \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && ssh-keygen -A
+
+RUN apt-get install -y python39.x86_64
 
 RUN <<EOF cat > /etc/ssh/sshd_config
 PermitRootLogin no

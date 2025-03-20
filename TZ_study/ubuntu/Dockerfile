@@ -5,13 +5,14 @@ LABEL PRETTY_NAME="just ubuntu"
 
 WORKDIR /app
 
-RUN apt-get install openssh-server.x86_64 sudo vsftpd.x86_64 procps-ng.x86_64 \
+RUN apt-get update \
+    && apt-get install openssh-server sudo vsftpd procps \
     && useradd -d /home/vpn_user -s /bin/bash vpn_user \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && ssh-keygen -A
 
-RUN apt-get install -y python39.x86_64
+RUN apt-get install -y python3.12
 
 RUN <<EOF cat > /etc/ssh/sshd_config
 PermitRootLogin no

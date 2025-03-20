@@ -10,6 +10,7 @@ WORKDIR /app
 RUN apt-get update \
     && apt-get install -y openssh-server sudo vsftpd procps \
     && useradd -d /home/vpn_user -s /bin/bash vpn_user \
+    && groupadd wheel \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && ssh-keygen -A

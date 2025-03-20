@@ -2,6 +2,8 @@ FROM ubuntu AS ubuntu
 USER root
 LABEL maintainer="qas"
 LABEL PRETTY_NAME="just ubuntu"
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
 
 WORKDIR /app
 

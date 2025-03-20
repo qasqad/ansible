@@ -40,4 +40,4 @@ USER root
 
 EXPOSE 22
 
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/usr/sbin/init"]

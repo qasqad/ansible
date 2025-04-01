@@ -1,7 +1,7 @@
 services:
 
   vpn_server_ubuntu:
-    image: ubuntu
+    image: ubuntu_vpn
     build: ubuntu/
     volumes:
       - ssh_pub_key:/home/vpn_user/.ssh/

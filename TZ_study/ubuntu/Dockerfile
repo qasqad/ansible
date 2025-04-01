@@ -1,4 +1,4 @@
-FROM ubuntu AS ubuntu
+FROM ubuntu AS ubuntu_vpn_umage
 USER root
 LABEL maintainer="qas"
 LABEL PRETTY_NAME="just ubuntu"
@@ -13,7 +13,8 @@ RUN apt-get update \
     && groupadd wheel \
     && usermod -aG wheel vpn_user \
     && echo '%wheel ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers \
-    && ssh-keygen -A
+    && ssh-keygen -A \
+    && mkdir -p /run/sshd
 
 RUN apt-get install -y python3.12
 
@@ -40,4 +41,4 @@ USER root
 
 EXPOSE 22
 
-ENTRYPOINT ["/usr/sbin/init"]
+ENTRYPOINT ["/usr/sbin/sshd", "-D"]

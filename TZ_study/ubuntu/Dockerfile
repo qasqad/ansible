@@ -21,7 +21,7 @@ RUN apt-get install -y python3.12
 RUN <<EOF cat > /etc/ssh/sshd_config
 PermitRootLogin no
 PubkeyAuthentication yes
-AuthorizedKeysFile  .ssh/id_rsa.pub
+AuthorizedKeysFile  /home/%u/.ssh/id_rsa.pub
 PasswordAuthentication no
 PermitEmptyPasswords no
 ChallengeResponseAuthentication no

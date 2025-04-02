@@ -17,7 +17,7 @@ RUN apt-get update \
     && ssh-keygen -A \
     && mkdir -p /run/sshd \
     && mkdir -p /home/vpn_user \
-    && chown vpn_user:vpn_user /home/vpn_user
+    && chown -R vpn_user:vpn_user /home/vpn_user
 
 RUN apt-get install -y python3.12
 
